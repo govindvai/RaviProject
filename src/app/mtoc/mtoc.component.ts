@@ -22,11 +22,12 @@ export class MtocComponent implements OnInit {
     combination4: new FormControl(''),
     combination5: new FormControl(''),
   });
+  processSteps: number = 1 ; // this will be comig from beckend. 
+  processValue: string;
   constructor(private http: HttpClient) { }
   optios = []
   ngOnInit(): void {
-  
-    this.profileForm.controls['opt'].setValue('');
+    this.activeLabel(1)
     let i =1;
     while (i <13) {
       let cc = "TPAN" + i;
@@ -38,25 +39,8 @@ export class MtocComponent implements OnInit {
   }
     
   }
-  
-  disPro: boolean = false;
-  onRegiter(){
-   
-    
-  }
  
-  showopt1!: boolean;
-  selecOpt(data:any){
-    if(this.profileForm.value['state'] === "Option2"){
-      this.showopt1 = true;
-    } else{  
-      this.showopt1 = false;
-    }
-    setTimeout(() => {
-      this.profileForm.controls['opt'].setValue('');
-    });
  
-  }
   selecOption(data:any){
  
   }
@@ -79,6 +63,28 @@ export class MtocComponent implements OnInit {
     }
     
   }
+
+  class(){
+    let color = ""
+    if(this.processSteps === 1){
+      this.processValue = "Initial"
+      color = "red";
+    } else if (this.processSteps === 2){
+      this.processValue = "Secoady"
+      color = "blue";
+    } else if (this.processSteps === 3){
+      this.processValue = "Almost"
+      color = "yellow";
+    } else if (this.processSteps === 4){
+      this.processValue = "Final"
+      color = "green";
+    };
+    const styleObject = {
+      'backgroundColor': color,
+    };
+    return styleObject;
+  }
+
  
  
   

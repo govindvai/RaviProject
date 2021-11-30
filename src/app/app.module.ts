@@ -10,11 +10,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MXActionComponent } from './mx-action/mx-action.component';
 @NgModule({
   declarations: [
     AppComponent,
     MtocComponent,
-    HeaderComponent
+    HeaderComponent,
+    MXActionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.input-group{
+    display: grid;
+    grid-template-columns: 80px 100px 100px 100px 100px;
+    grid-gap: 0px;
+    justify-content: space-between;
+}
+.txt{
+    text-align: center;
+}

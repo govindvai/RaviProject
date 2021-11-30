@@ -1,97 +1,87 @@
 <div class="col-md-12">
     <form [formGroup]="profileForm">
-    <div class="form-group">
-        <label for="state" ></label>
-            <select class="form-control" id="state" name="state" (change)="selecOpt($event)" formControlName="state">
-                <option>MX Action Settings</option>
-                <option>Scanner Automation settings</option>
-        
-              </select>
-              <p *ngIf="!this.profileForm.value['state']">Please Select the UI</p>
-              <ng-container *ngIf="this.profileForm.value['state'] === 'MX Action Settings'">
-              
-              </ng-container>
+        <div class="form-group">
 
-              <ng-container style="margin-top: 10px;"
-                *ngIf="this.profileForm.value['state'] === 'Scanner Automation settings'">
                 <div style="margin-top: 60px;" class="row">
                     <div class="col-md-2">
                         <div class="nav sidebar-nav">
-                            <a class="list-group-item" [ngClass]="getActiveClass(1)" (click)="activeLabel(1)">MTOC settings</a>
+                            <a class="list-group-item" [ngClass]="getActiveClass(1)" (click)="activeLabel(1)">MTOC
+                                settings</a>
                             <a class="list-group-item" [ngClass]="getActiveClass(2)" (click)="activeLabel(2)">Second
                                 item</a>
                         </div>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-8">
                         <div *ngIf="activeLab === 1">
                             <div class="col-md-2">
                                 <select class="form-control" id="opt" name="opt" (change)="selecOption($event)"
                                     formControlName="opt">
-                                    <option *ngFor='let option of optios'>{{option}}</option>
+                                    <option *ngFor='let option of optios' value="{{option}}">{{option}}</option>
                                 </select>
                                 <p style="margin-top: 10px;" *ngIf="!this.profileForm.value['opt']">Please Select</p>
                             </div>
                             <div class="col-md-8">
-                                <ng-container style="margin-bottom: 10px;"
-                                    *ngIf="this.profileForm.value['opt']">
-                                    <table>
-                                        <tr style="margin-bottom: 20px;">
-                                            <th><label style="margin-bottom: 20px;" style="margin-right: 5px;"
-                                                    for="">Color</label></th>
-                                            <th style="text-align: center;"><label  for="">Toms-X-offset</label></th>
-                                            <th style="text-align: center;"><label style="" for="">Toms-X-offset</label></th>
-                                            <th style="text-align: center;"><label style="" for="">Toms-X-offset</label></th>
-                                            <th style="text-align: center;"><label style="" for="">Toms-X-offset</label></th>
-                                            <th style="text-align: center;"><label style="" for="">Toms-X-offset</label></th>
-                                        </tr>
-                                        <tr>
-                                            <td><label class="mr-3" style="margin-right: 5px;" for="">Red</label></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label class="form-control" class="mr-3" style="margin-right: 5px;"
-                                                    for="">Yellow</label></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label class="mr-3" style="margin-right: 5px;" for="">Orange</label>
-                                            </td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><label class="form-control" class="mr-3" style="margin-right: 5px;"
-                                                    for="">Green</label></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                            <td><input class="form-control" type="text"></td>
-                                        </tr>
-                                    </table>
+                                <ng-container style="margin-bottom: 10px;" *ngIf="this.profileForm.value['opt']">
+                                    <div>
+                                        <div style="display: grid; row-gap: 10px;">
+                                            <ul class="input-group">
+                                                <li class="txt" style="font-weight: bolder;">Color</li>
+                                                <li style="font-weight: bolder;">Toms-X-offset</li>
+                                                <li style="font-weight: bolder;">Toms-X-offset</li>
+                                                <li style="font-weight: bolder;">Toms-X-offset</li>
+                                                <li style="font-weight: bolder;">Toms-X-offset</li>
+                                            </ul>
+                                            <div class="input-group">
+                                                <label class="form-control txt">Red</label>
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                            <div class="input-group">
+                                                <label class="form-control txt">Yellow</label>
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                            <div class="input-group">
+                                                <label class="form-control txt">Orange</label>
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                            <div class="input-group">
+                                                <label class="form-control txt">Green</label>
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                            <div class="txt">
+                                                <button class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </ng-container>
                             </div>
                         </div>
                     </div>
+                    <div *ngIf="processSteps" class="col-md-2" style="margin-left: -100px; border: 2px solid rgb(121, 190, 218); padding: 20px;">
+                        <div style="margin-bottom: 20px;">
+                            Setting No: {{this.profileForm.value['opt']}}
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            Date: 30/11/2021
+                        </div>
+                        <div [ngStyle]="class()">
+                            Process is going in {{processValue}} mode.
+                        </div>
+                    </div>
                 </div>
-            </ng-container>
+        </div>
 
-    </div>
-    <div >
-        
-    </div>
-    
     </form>
 </div>
-   
